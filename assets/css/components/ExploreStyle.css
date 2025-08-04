@@ -1,0 +1,121 @@
+@import url('./TripCard.css');
+@import url('./Filters.css');
+@import url('./Hero.css');
+@import url('./SiteFooter.css');
+
+/* === Reset & Base === */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #121212;
+  color: #fff;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+button {
+  cursor: pointer;
+}
+
+/* === Navbar === */
+.navbar {
+  background-color: #1e1e1e;
+  color: #ffcc00;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  width: 100%;
+}
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.nav-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.nav-links {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.nav-links a {
+  font-weight: 600;
+}
+.nav-links .btn {
+  margin-left: 1rem;
+}
+
+/* === Hero Section === */
+.hero-section {
+  padding: 5rem 2rem;
+  text-align: center;
+  background: linear-gradient(90deg, #000, #222);
+}
+.hero-section h1 {
+  font-size: 2.5rem;
+  color: #ffcc00;
+}
+.hero-section p {
+  margin: 1rem 0 2rem;
+  font-size: 1.2rem;
+}
+.btn--white {
+  background-color: #fff;
+  color: #1e1e1e;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  font-weight: bold;
+}
+
+/* === Filter Section === */
+.filter-section {
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  background-color: #1a1a1a;
+}
+.filter-section select,
+.filter-section input {
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: none;
+}
+.btn--yellow {
+  background-color: #ffcc00;
+  color: #000;
+  padding: 0.5rem 1rem;
+  border: none;
+  font-weight: bold;
+}
+
+/* === Trip Grid === */
+.trip-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 3rem 2rem;
+}
+
+/* === Footer === */
+.site-footer {
+  text-align: center;
+  padding: 2rem;
+  background-color: #1e1e1e;
+  color: #888;
+  font-size: 0.9rem;
+}

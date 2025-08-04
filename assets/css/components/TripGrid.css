@@ -1,0 +1,19 @@
+.trip-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr;
+  padding: 2rem;
+}
+
+/* Larger screens */
+@media (min-width: 600px) {
+  .trip-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .trip-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

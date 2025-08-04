@@ -1,0 +1,38 @@
+/* ====== CSS Reset ====== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ====== Base Typography ====== */
+body {
+  font-family: 'Arial', sans-serif;
+  font-size: 16px;
+  color: #000;
+  background-color: #f8f8f8;
+  line-height: 1.5;
+}
+
+/* ====== Headings ====== */
+h1, h2, h3, h4 {
+  font-weight: bold;
+  color: #222;
+}
+
+/* ====== Links ====== */
+a {
+  color: #FFD700;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ====== Layout Helpers ====== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}

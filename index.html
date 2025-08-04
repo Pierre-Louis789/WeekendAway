@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Footy Weekender</title>
+  <link rel="stylesheet" href="assets/css/components/ExploreStyle.css" />
+  <link rel="stylesheet" href="assets/css/components/TripCard.css" />
+  <link rel="stylesheet" href="assets/css/components/Filters.css" />
+  <link rel="stylesheet" href="assets/css/components/Hero.css" />
+  <link rel="stylesheet" href="assets/css/components/SiteFooter.css" />
+<link rel="stylesheet" href="assets/css/components/Button.css">
+<link rel="stylesheet" href="/weekendaway/TripCard.css">
+<link rel="stylesheet" href="/weekendaway/TripGrid.css">
+
+
+  <script type="module" src="tripLogic.js" defer></script>
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">🏟️ Footy Weekender</div>
+      <nav class="nav-links">
+        <a href="#hero">Home</a>
+        <a href="#trip-grid">Explore Trips</a>
+        <a href="itinerary.html">Build Itinerary</a>
+        <a href="#affiliate">Partners</a>
+        <button class="btn btn--yellow">Log In</button>
+      </nav>
+    </div>
+  </header>
+
+  <section id="hero" class="hero-section">
+    <h1>Your Next Matchday, Sorted.</h1>
+    <p>Fixtures, flights, hotels — curated for football fans.</p>
+    <a href="#trip-grid" class="btn btn--white">Start Exploring</a>
+  </section>
+
+  <section id="filters" class="filter-section">
+    <!-- League, Country, Date filters -->
+    <form id="tripFilters">
+      <select name="league">
+        <option value="">League</option>
+        <option value="premier">Premier League</option>
+        <option value="bundesliga">Bundesliga</option>
+        <!-- Add more -->
+      </select>
+      <select name="country">
+        <option value="">Country</option>
+        <option value="uk">UK</option>
+        <option value="germany">Germany</option>
+        <!-- Add more -->
+      </select>
+      <input type="date" name="date" />
+      <button type="submit" class="btn btn--yellow">Filter</button>
+    </form>
+  </section>
+
+  <section id="trip-grid" class="trip-grid">
+    <!-- Dynamic trip cards get injected here -->
+     <div class="trip-grid">
+  <!-- Include multiple TripCards -->
+  <!-- Copy/paste or render dynamically -->
+    <div class="trip-card">
+      <img src="/assets/images/barcelona.jpg" alt="Barcelona stadium" class="trip-card__image">
+      <div class="trip-card__content">
+        <h3 class="trip-card__title">Barcelona Weekend Blitz</h3>
+        <p class="trip-card__details">Flights + Hotel + Matchday</p>
+        <div class="trip-card__actions">
+          <button class="button">Book Now</button>
+          <button class="button button--secondary">Save Trip</button>
+          <button class="button button--outline">Explore More</button>
+        </div>
+      </div>
+    </div>
+    <div class="trip-card">
+      <img src="/assets/images/manchester.jpg" alt="Manchester stadium" class="trip-card__image">
+      <div class="trip-card__content">
+        <h3 class="trip-card__title">Manchester City Experience</h3>
+        <p class="trip-card__details">Flights + Hotel + Matchday</p>
+        <div class="trip-card__actions">
+          <button class="button">Book Now</button>
+          <button class="button button--secondary">Save Trip</button>
+          <button class="button button--outline">Explore More</button>
+        </div>
+      </div>
+    </div>
+    <div class="trip-card">
+      <img src="/assets/images/munich.jpg" alt="Munich stadium" class="trip-card__image">
+      <div class="trip-card__content">
+        <h3 class="trip-card__title">Bayern Munich Weekend</h3>
+        <p class="trip-card__details">Flights + Hotel + Matchday</p>
+        <div class="trip-card__actions">
+          <button class="button">Book Now</button>
+          <button class="button button--secondary">Save Trip</button>
+          <button class="button button--outline">Explore More</button>
+        </div>
+      </div>
+    </div>
+    <div class="trip-card">
+      <img src="/assets/images/paris.jpg" alt="Paris stadium" class="trip-card__image">
+      <div class="trip-card__content">
+        <h3 class="trip-card__title">Paris Saint-Germain Getaway</h3>
+        <p class="trip-card__details">Flights + Hotel + Matchday</p>
+        <div class="trip-card__actions">
+          <button class="button">Book Now</button>
+          <button class="button button--secondary">Save Trip</button>
+          <button class="button button--outline">Explore More</button>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-logo">🏟️ Footy Weekender</div>
+    <div class="footer-links">
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="contact.html">Contact</a>
+      <a href="partners.html">Partners</a>
+    </div>
+    <div class="footer-legal">
+      © 2025 Footy Weekender. Built for fans, by fans.
+    </div>
+  </div>
+</footer>
+
+<script type="module" src="assets/js/modules/tripLogic.js"></script>
+<script src="assets/js/trip-loader.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+/* === Modern Site Footer === */
+.site-footer {
+  background-color: #121212;
+  color: #aaa;
+  padding: 2.5rem 1.5rem;
+  border-top: 2px solid #ffcc00;
+  font-size: 0.95rem;
+}
+
+.site-footer .footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footer-logo {
+  font-weight: bold;
+  font-size: 1.3rem;
+  color: #ffcc00;
+  letter-spacing: 0.5px;
+}
+
+.footer-links a {
+  color: #aaa;
+  margin: 0 0.6rem;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: #fff;
+}
+
+.footer-legal {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  text-align: center;
+  width: 100%;
+  color: #666;
+}

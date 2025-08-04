@@ -1,0 +1,26 @@
+[
+  {
+    "title": "Barcelona Weekend Blitz",
+    "image": "barcelona.jpg",
+    "alt": "Barcelona stadium",
+    "details": "Flights + Hotel + Matchday"
+  },
+  {
+    "title": "Manchester City Experience",
+    "image": "manchester.jpg",
+    "alt": "Manchester stadium",
+    "details": "Flights + Hotel + Matchday"
+  },
+  {
+    "title": "Bayern Munich Weekend",
+    "image": "munich.jpg",
+    "alt": "Munich stadium",
+    "details": "Flights + Hotel + Matchday"
+  },
+  {
+    "title": "Paris Saint-Germain Getaway",
+    "image": "paris.jpg",
+    "alt": "Paris stadium",
+    "details": "Flights + Hotel + Matchday"
+  }
+]

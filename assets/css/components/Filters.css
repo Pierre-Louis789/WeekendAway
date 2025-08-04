@@ -1,0 +1,42 @@
+/* === Filter Section Styles === */
+.filter-section {
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  background-color: #1a1a1a;
+  border-top: 1px solid #333;
+  border-bottom: 1px solid #333;
+}
+
+.filter-section select,
+.filter-section input[type="date"] {
+  padding: 0.6rem;
+  background-color: #2b2b2b;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  min-width: 160px;
+}
+
+.filter-section select:focus,
+.filter-section input:focus {
+  outline: none;
+  border: 2px solid #ffcc00;
+}
+
+.filter-section button {
+  background-color: #ffcc00;
+  color: #1e1e1e;
+  font-weight: bold;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.filter-section button:hover {
+  background-color: #ffc800d2;
+}
