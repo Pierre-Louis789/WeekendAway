@@ -2,7 +2,10 @@ fetch('/assets/data/trips.json')
   .then(res => res.json())
   .then(trips => {
     const container = document.getElementById('trip-grid');
-    trips.forEach(trip => {
+
+    const featuredTrips = trips.slice(0, 3); // Only top 3
+
+    featuredTrips.forEach(trip => {
       const card = document.createElement('div');
       card.className = 'trip-card';
       card.innerHTML = `

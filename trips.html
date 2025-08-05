@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>All Trips – Footy Weekender</title>
+  <!-- Styles -->
+  <link rel="stylesheet" href="assets/css/components/ExploreStyle.css" />
+  <link rel="stylesheet" href="assets/css/components/TripCard.css" />
+  <link rel="stylesheet" href="assets/css/components/TripGrid.css" />
+  <link rel="stylesheet" href="assets/css/components/Filters.css" />
+  <link rel="stylesheet" href="assets/css/components/Hero.css" />
+  <link rel="stylesheet" href="assets/css/components/SiteFooter.css" />
+  <link rel="stylesheet" href="assets/css/components/Button.css" />
+  
+  <!-- Scripts: Trips Grid -->
+<script type="module" src="assets/js/modules/tripLogic.js"></script>
+<script type="module">
+  import { renderTrips } from '/assets/js/modules/tripLogic.js';
+  renderTrips('trip-grid'); // ← match container ID in HTML
+</script>
+<script src="/assets/js/utils/lazyLoad.js"></script>
+
+  
+
+</head>
+<body>
+  <!-- 🔝 Navbar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">🏟️ Football Traveller</div>
+      <nav class="nav-links">
+        <a href="index.html#hero">Home</a>
+        <a href="trips.html#trip-grid" class="active">Explore Trips</a>
+        <a href="itinerary.html">Build Itinerary</a>
+        <a href="#affiliate">Partners</a>
+        <button class="btn btn--yellow">Log In</button>
+      </nav>
+    </div>
+  </header>
+  <!-- 🏟️ Hero Section -->
+  <section id="hero" class="hero-section">
+    <div class="hero-content" >
+      <h1>Explore Football Trips</h1>
+      <p>Discover the best football trips and experiences around the world.</p>
+    </div>
+  </section>
+
+  <!-- 🔍 Trip Filters Section -->
+<section class="filters-section">
+  <form id="tripFilters" class="filters-form">
+    <input type="text" name="keyword" placeholder="Search club or city" />
+    <button type="submit">Filter Trips</button>
+  </form>
+</section>
+
+<!-- 🧳 Trip Grid Section -->
+<section id="trip-grid" class="trip-grid-section">
+  <div id="tripContainer"></div>
+</section>
+
+<!-- 🧠 Trip Filters Script -->
+<script type="module">
+  import { initTripFilters } from './assets/js/modules/formHandler.js';
+  initTripFilters();
+</script>
+
+
+  <footer class="site-footer">
+    <!-- footer consistent with index.html -->
+  </footer>
+
+</body>
+</html>

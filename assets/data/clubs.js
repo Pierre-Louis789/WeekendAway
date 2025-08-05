@@ -1,4 +1,4 @@
-const clubs = [
+export const clubs = [
   {
     club: "Arsenal",
     league: "Premier League",
@@ -4068,8 +4068,6 @@ const clubs = [
 
 ];
 
-
-export { clubs };
 // This code defines an array of football clubs with their details such as name, league, city, stadium, capacity, tour availability, fan zone pub, transport options, attractions, affiliate links for hotels and tickets, and an empty news feed.
 // The clubs include teams from Brazil's Brasileirão Série A, Argentina's Primera División, and other international teams from leagues like MLS, Süper Lig, Scottish Premiership, and more. Each club has a structured object containing relevant information for fans and tourists.  
 // The clubs are exported for use in other parts of the application, allowing for easy access to club information.
