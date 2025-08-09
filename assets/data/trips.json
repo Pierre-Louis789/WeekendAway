@@ -1,26 +1,148 @@
 [
-  {
-    "title": "Barcelona Weekend Blitz",
-    "image": "barcelona.jpg",
-    "alt": "Barcelona stadium",
-    "details": "Flights + Hotel + Matchday"
-  },
-  {
-    "title": "Manchester City Experience",
-    "image": "manchester.jpg",
-    "alt": "Manchester stadium",
-    "details": "Flights + Hotel + Matchday"
-  },
-  {
-    "title": "Bayern Munich Weekend",
-    "image": "munich.jpg",
-    "alt": "Munich stadium",
-    "details": "Flights + Hotel + Matchday"
-  },
-  {
-    "title": "Paris Saint-Germain Getaway",
-    "image": "paris.jpg",
-    "alt": "Paris stadium",
-    "details": "Flights + Hotel + Matchday"
-  }
+{
+  "title": "Liverpool",
+  "league": "Premier League",
+  "country": "UK",
+  "stadium": "Anfield",
+  "slug": "liverpool",
+  "club": "Liverpoolfc"
+},
+{
+  "title": "Manchester United",
+  "league": "Premier League",
+  "country": "UK",
+  "stadium": "Old Trafford",
+  "slug": "manchester-united",
+  "club": "Man United"
+},
+{
+  "title": "Barcelona",
+  "league": "La Liga",
+  "country": "Spain",
+  "stadium": "Camp Nou",
+  "slug": "barcelona",
+  "club": "FC Barcelona"
+},
+{
+  "title": "Real Madrid",
+  "league": "La Liga",
+  "country": "Spain",
+  "stadium": "Santiago Bernabéu Stadium",
+  "slug": "real-madrid",
+  "club": "Real Madrid"
+},
+{
+  "title": "Bayern Munich",
+  "league": "Bundesliga",
+  "country": "Germany",
+  "stadium": "Allianz Arena",
+  "slug": "bayern-munich",
+  "club": "Bayern Munich"
+},
+{
+  "title": "Paris Saint-Germain",
+  "league": "Ligue 1",
+  "country": "France",
+  "stadium": "Parc des Princes",
+  "slug": "paris-saint-germain",
+  "club": "Paris Saint-Germain"
+},
+{
+  "title": "AC Milan",
+  "league": "Serie A",
+  "country": "Italy",
+  "stadium": "San Siro",
+  "slug": "ac-milan",
+  "club": "AC Milan"
+},
+{
+  "title": "Juventus",
+  "league": "Serie A",
+  "country": "Italy",
+  "stadium": "Allianz Stadium",
+  "slug": "juventus",
+  "club": "Juventus"
+},
+{
+  "title": "AFC Ajax",
+  "league": "Eredivisie",
+  "country": "Netherlands",
+  "stadium": "Johan Cruyff Arena",
+  "slug": "ajax",
+  "club": "Ajax"
+},
+{
+  "title": "FC Porto",
+  "league": "Primeira Liga",
+  "country": "Portugal",
+  "stadium": "Estádio do Dragão",
+  "slug": "fc-porto",
+  "club": "FC Porto"
+},
+{
+  "title": "Benfica",
+  "league": "Primeira Liga",
+  "country": "Portugal",
+  "stadium": "Estádio da Luz",
+  "slug": "benfica",
+  "club": "SL Benfica"
+},
+{
+  "title": "Sporting CP",
+  "league": "Primeira Liga",
+  "country": "Portugal",
+  "stadium": "Estádio José Alvalade",
+  "slug": "sporting-cp",
+  "club": "Sporting CP"
+},
+{
+  "title": "Inter Milan",
+  "league": "Serie A",
+  "country": "Italy",
+  "stadium": "San Siro",
+  "slug": "inter-milan",
+  "club": "Inter Milan"
+},
+{
+  "title": "Tottenham Hotspur",
+  "league": "Premier League",
+  "country": "UK",
+  "stadium": "Tottenham Hotspur Stadium",
+  "slug": "tottenham-hotspur",
+  "club": "Tottenham Hotspur"
+},
+{
+  "title": "Chelsea",
+  "league": "Premier League",
+  "country": "UK",
+  "stadium": "Stamford Bridge",
+  "slug": "chelsea",
+  "club": "Chelsea FC"
+},
+{
+  "title": "Manchester City",
+  "league": "Premier League",
+  "country": "UK",
+  "stadium": "Etihad Stadium",
+  "slug": "manchester-city",
+  "club": "Manchester City"
+},
+{
+  "title": "Arsenal",
+  "league": "Premier League",
+  "country": "UK",
+  "stadium": "Emirates Stadium",
+  "slug": "arsenal",
+  "club": "Arsenal FC"
+},
+{
+  "title": "Borussia Dortmund",
+  "league": "Bundesliga",
+  "country": "Germany",
+  "stadium": "Signal Iduna Park",
+  "slug": "borussia-dortmund",
+  "club": "Borussia Dortmund"
+}
+
+
 ]

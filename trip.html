@@ -6,19 +6,62 @@
   <title>Trip Details – Footy Weekender</title>
   <link rel="stylesheet" href="assets/css/components/TripDetail.css" />
   <link rel="stylesheet" href="assets/css/components/Button.css" />
-  <script type="module" src="assets/js/pages/tripDetail.js" defer></script>
 </head>
 <body>
   <header class="navbar">
     <!-- Shared navigation layout -->
   </header>
 
-  <main class="trip-detail" id="tripDetailContainer">
-    <!-- JS injects full trip info here -->
+  <main id="tripDetailContainer" class="trip-detail">
+    <section id="trip-details" class="trip-details"></section>
   </main>
 
   <footer class="site-footer">
     <!-- Shared footer layout -->
   </footer>
+
+  <script type="module">
+    import { clubs } from '/assets/data/clubs.js';
+
+    function getSlugFromURL() {
+      const params = new URLSearchParams(window.location.search);
+      return params.get('id'); // e.g. reethi-rah-fc
+    }
+
+    function findClub(slug) {
+      return clubs.find(club =>
+        club.name && club.name.toLowerCase().replace(/\s+/g, '-') === slug
+      );
+    }
+
+    function renderTripPage(club) {
+      const container = document.getElementById('trip-details');
+      if (!club) {
+        container.innerHTML = '<p>Trip not found.</p>';
+        return;
+      }
+
+      container.innerHTML = `
+        <section class="trip-hero">
+          <h1>${club.name}</h1>
+          <p><strong>League:</strong> ${club.league}</p>
+          <p><strong>City:</strong> ${club.city}</p>
+          <p><strong>Stadium:</strong> ${club.stadium} (${club.capacity} seats)</p>
+          <p><strong>Transport:</strong> ${club.transport}</p>
+          <p><strong>Fan Zone Pub:</strong> ${club.fanZonePub}</p>
+          <p><strong>Attractions:</strong> ${club.attractions.join(', ')}</p>
+          <div class="trip-actions">
+            <a href="${club.affiliate?.tickets || '#'}" class="button">Tickets</a>
+            <a href="${club.affiliate?.hotel || '#'}" class="button button--secondary">Hotel</a>
+            <a href="${club.affiliate?.flights || '#'}" class="button button--outline">Flights</a>
+          </div>
+        </section>
+      `;
+    }
+
+    const slug = getSlugFromURL();
+    const matchedClub = findClub(slug);
+    renderTripPage(matchedClub);
+  </script>
 </body>
 </html>

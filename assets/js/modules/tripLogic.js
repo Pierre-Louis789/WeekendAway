@@ -1,12 +1,12 @@
-// === Trip Card Logic ===
+// js/modules/tripLogic.js
+// trip logic module
 import { clubs } from '../../data/clubs.js';
 
 export async function fetchTrips() {
   try {
-    const res = await fetch('/assets/data/trips.json'); // Absolute path
+    const res = await fetch('/assets/data/trips.json');
     if (!res.ok) throw new Error(`Fetch failed: ${res.status}`);
-    const trips = await res.json();
-    return trips;
+    return await res.json();
   } catch (err) {
     console.error('Error fetching trips:', err);
     return [];
@@ -20,20 +20,21 @@ function matchClubMeta(title) {
   );
 }
 
-export function createTripCard(trip, clubMeta) {
-  const stadium = clubMeta?.stadium || trip.alt;
-  const imageSrc = trip.image
+export function createTripCard(trip) {
+  const imageSrc = trip.image?.trim()
     ? `assets/img/${trip.image}`
     : `assets/img/placeholder.jpg`;
 
+  const clubSlug = trip.clubName?.toLowerCase().replace(/\s+/g, '-') || 'unknown-club';
+
   return createCardHTML({
     title: trip.title,
-    stadium,
-    details: trip.details,
+    stadium: trip.stadium || trip.alt || 'Stadium TBD',
+    details: trip.details || '',
     imageSrc,
-    alt: trip.alt,
-    affiliate: clubMeta?.affiliate,
-    clubSlug: clubMeta?.name?.toLowerCase().replace(/\s+/g, '-')
+    alt: trip.alt || trip.title,
+    affiliate: trip.affiliate || {},
+    clubSlug
   });
 }
 
@@ -52,9 +53,9 @@ function createCardHTML({ title, stadium, details, imageSrc, alt, affiliate, clu
       <p class="trip-card__details">${stadium}</p>
       <p class="trip-card__details">${details}</p>
       <div class="trip-card__actions">
-        <a href="${affiliate?.tickets || '#'}" class="button">Book Now</a>
-        <a href="${affiliate?.hotel || '#'}" class="button button--secondary">Hotel</a>
-        <a href="${affiliate?.flights || '#'}" class="button button--outline">Flights</a>
+        <a href="${affiliate.tickets || '#'}" class="button">Book Now</a>
+        <a href="${affiliate.hotel || '#'}" class="button button--secondary">Hotel</a>
+        <a href="${affiliate.flights || '#'}" class="button button--outline">Flights</a>
       </div>
       <div class="trip-card__footer">
         <a href="trip.html?id=${clubSlug}" class="trip-card__link">Explore More</a>
@@ -69,13 +70,25 @@ export async function renderTrips(containerId, keyword = "") {
   container.innerHTML = "";
 
   const trips = await fetchTrips();
-  const filteredTrips = keyword
-    ? trips.filter(t => t.title.toLowerCase().includes(keyword.toLowerCase()))
-    : trips;
-
-  filteredTrips.forEach(trip => {
+  const enrichedTrips = trips.map(trip => {
     const clubMeta = matchClubMeta(trip.title);
-    const card = createTripCard(trip, clubMeta);
+    return {
+      ...trip,
+      clubName: clubMeta?.name,
+      stadium: clubMeta?.stadium,
+      city: clubMeta?.city,
+      country: clubMeta?.country,
+      tags: clubMeta?.tags || [],
+      affiliate: clubMeta?.affiliate || {}
+    };
+  });
+
+  const filtered = keyword
+    ? enrichedTrips.filter(t => t.title.toLowerCase().includes(keyword.toLowerCase()))
+    : enrichedTrips;
+
+  filtered.forEach(trip => {
+    const card = createTripCard(trip);
     container.appendChild(card);
   });
 

@@ -1,8 +1,12 @@
 import { clubs } from '../../data/clubs.js';
 
+function slugify(name) {
+  return name.toLowerCase().replace(/\s+/g, '-');
+}
+
 export function createTripCard(trip, clubMeta = {}) {
   const badge = clubMeta.logo || '';
-  const stadium = trip.stadium || clubMeta.stadium || 'Unknown';
+  const stadium = trip.stadium || clubMeta.stadium?.name || 'Unknown';
 
   const card = document.createElement('div');
   card.className = 'trip-card';
@@ -23,16 +27,15 @@ export function createTripCard(trip, clubMeta = {}) {
   return card;
 }
 
-export function renderTrips(containerId = 'allTripsContainer') {
+export function renderTrips(containerId = 'trip-grid') {
   const container = document.getElementById(containerId);
 
   fetch('/assets/data/trips.json')
     .then(res => res.json())
     .then(trips => {
       trips.forEach(trip => {
-        const clubMeta = clubs.find(
-          club => club.name.toLowerCase() === trip.team.toLowerCase()
-        );
+        const slug = slugify(trip.team);
+        const clubMeta = clubs.find(club => club.slug === slug);
         const card = createTripCard(trip, clubMeta);
         container.appendChild(card);
       });
@@ -41,3 +44,20 @@ export function renderTrips(containerId = 'allTripsContainer') {
       console.error('Trip loading error:', err);
     });
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  renderTrips();
+});
+
+import { initTypeahead } from '../modules/typeahead.js';
+import { searchTrips } from '../modules/searchLogic.js';
+import { renderTripGrid } from '../modules/tripLogic.js'; // assuming this exists
+
+import { allTrips } from '../init/triploader.js'; // or wherever your trip data is loaded
+
+const inputEl = document.querySelector('#searchInput');
+
+initTypeahead(inputEl, allTrips, selected => {
+  const results = searchTrips(selected, allTrips);
+  renderTripGrid(results);
+});

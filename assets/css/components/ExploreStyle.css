@@ -2,6 +2,7 @@
 @import url('./Filters.css');
 @import url('./Hero.css');
 @import url('./SiteFooter.css');
+@import './Typeahead.css';
 
 /* === Reset & Base === */
 
@@ -118,4 +119,56 @@ button {
   background-color: #1e1e1e;
   color: #888;
   font-size: 0.9rem;
+}
+
+/* === Typeahead Dropdown === */
+
+.typeahead-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #ccc;
+  z-index: 10;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 240px;
+  overflow-y: auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  font-size: 0.95rem;
+  border-radius: 0 0 4px 4px;
+  width: 100%;
+  max-width: 600px; /* Adjust as needed */
+  margin: 0 auto; /* Center the container */
+
+}
+
+.typeahead-dropdown li {
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.typeahead-dropdown li:hover {
+  background: #f0f0f0;
+}
+
+//experience card styles
+
+
+.experience-card {
+  text-align: center;
+  cursor: pointer;
+}
+
+.experience-card img {
+  width: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.experience-card h3 {
+  margin-top: 8px;
+  font-size: 1rem;
 }

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>WeekEnd Away</title>
 
-  <!-- Styles -->
+  <!-- 🧵 Stylesheets -->
   <link rel="stylesheet" href="assets/css/components/ExploreStyle.css" />
   <link rel="stylesheet" href="assets/css/components/TripCard.css" />
   <link rel="stylesheet" href="assets/css/components/TripGrid.css" />
@@ -13,23 +13,23 @@
   <link rel="stylesheet" href="assets/css/components/Hero.css" />
   <link rel="stylesheet" href="assets/css/components/SiteFooter.css" />
   <link rel="stylesheet" href="assets/css/components/Button.css" />
-
+  <link rel="stylesheet" href="assets/css/components/Typeahead.css" />
+  <link rel="stylesheet" href="assets/css/components/TripDetails.css" />
   
-  <!-- Scripts: Homepage Explorer -->
-<script type="module" src="assets/js/modules/explorerLogic.js"></script>
-<script type="module" src="assets/js/modules/filterLogic.js"></script>
-<script type="module" src="assets/js/modules/tripLogic.js"></script>
-<script src="assets/js/utils/lazyLoad.js"></script>
 
+  <!-- 🧠 Modular Scripts -->
+  <script type="module" src="assets/js/modules/explorerLogic.js"></script>
+  <script type="module" src="assets/js/modules/filterLogic.js"></script>
+  <script type="module" src="assets/js/modules/tripLogic.js"></script>
 </head>
-<body>
 
+<body>
   <!-- 🔝 Navbar -->
   <header class="navbar">
     <div class="nav-container">
       <div class="nav-logo">🏟️ Football Traveller</div>
       <nav class="nav-links">
-       <a href="index.html#hero">Home</a>
+        <a href="index.html#hero">Home</a>
         <a href="trips.html#trip-grid" class="active">Explore Trips</a>
         <a href="itinerary.html">Build Itinerary</a>
         <a href="#affiliate">Partners</a>
@@ -42,7 +42,27 @@
   <section id="hero" class="hero-section">
     <h1>Your Next Matchday, Sorted.</h1>
     <p>Fixtures, flights, hotels — curated for football fans.</p>
-    <a href="#trip-grid" class="btn btn--white">Start Exploring</a>
+    <br>
+    
+      <!-- 🧠 Search Input -->
+       <label for="searchInput"></label>
+<div class="typeahead-container">
+  <input type="text" id="searchInput" placeholder="Search clubs, cities, stadiums..." />
+</div>
+
+
+      
+
+      <!-- 🧠 Search Logic -->
+      <script type="module" src="assets/js/modules/searchLogic.js"></script>
+
+
+</div>
+<br>
+    <div class="hero-actions">
+      <a href="trips.html#trip-grid" class="btn btn--white">Explore Trips</a>
+      <a href="itinerary.html" class="btn btn--white">Build Itinerary</a>
+      <a href="#trip-grid" class="btn btn--white">Explore</a>
   </section>
 
   <!-- 🧪 Filters -->
@@ -52,19 +72,30 @@
         <option value="">League</option>
         <option value="premier">Premier League</option>
         <option value="bundesliga">Bundesliga</option>
+        <option value="la-liga">La Liga</option>
+        <option value="serie-a">Serie A</option>
+        <option value="ligue-1">Ligue 1</option>
+        <option value="resort-league">Resort League</option>
+        <option value="international">International</option>
       </select>
       <select name="country">
         <option value="">Country</option>
         <option value="uk">UK</option>
         <option value="germany">Germany</option>
+        <option value="spain">Spain</option>
+        <option value="italy">Italy</option>
+        <option value="france">France</option>
+        <option value="portugal">Portugal</option>
+        <option value="netherlands">Netherlands</option>
+        <option value="international">International</option>
       </select>
       <input type="date" name="date" />
-      <button type="submit" class="btn btn--yellow">Filter</button>
+      <button type="submit" class="btn btn--yellow">Search</button>
     </form>
   </section>
 
   <!-- ✈️ Trips Grid -->
-  <section id="trip-grid" class="trip-grid">
+  <section id="trip-grid" class="trip-grid-section">
     <div id="tripContainer"><!-- JS injects featured trips here --></div>
     <a href="trips.html" class="view-all-trips-btn">View All Trips</a>
   </section>
@@ -85,5 +116,15 @@
     </div>
   </footer>
 
+  <!-- 🖼️ Lazy Load -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/17.1.1/lazyload.min.js"></script>
+  <script type="module">
+    import { renderTrips } from '/assets/js/modules/tripLogic.js';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderTrips('tripContainer'); // ✅ Initial featured trips
+      new LazyLoad({ elements_selector: 'img.lazy' });
+    });
+  </script>
 </body>
 </html>

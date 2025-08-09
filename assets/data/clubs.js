@@ -1,9 +1,13 @@
-export const clubs = [
+const slugify = name => name.toLowerCase().replace(/\s+/g, '-');
+
+const rawClubs = [
+
   {
-    club: "Arsenal",
+    name: "Arsenal",
     league: "Premier League",
     country: "England",
     city: "London",
+    slug: slugify("Arsenal"),
     stadium: {
       name: "Emirates Stadium",
       capacity: 60260,
@@ -60,10 +64,11 @@ export const clubs = [
   },
 
   {
-    club: "Manchester City",
+    name: "Manchester City",
     league: "Premier League",
     country: "England",
     city: "Manchester",
+    slug: slugify("Manchester City"),
     stadium: {
       name: "Etihad Stadium",
       capacity: 55017,
@@ -108,12 +113,66 @@ export const clubs = [
       }
     ]
   },
+  {
+    name: "Manchester United",
+    league: "Premier League",
+    country: "England",
+    city: "Manchester",
+    slug: slugify("Manchester United"),
+    stadium: {
+      name: "Old Trafford",
+      capacity: 74879,
+      tourAvailable: true,
+      tourLink: "/bookings.html?club=manchester-united&type=tour"
+    },
+    image: "manchester-united.jpg",
+    description: "Known as the 'Theatre of Dreams', Old Trafford is one of the most iconic stadiums in world football. Manchester United boasts a rich history and a global fanbase.",
+    fanZone: [
+      {
+        name: "The Bishop Blaize",
+        description: "Historic pub with a long-standing connection to the club.",
+        link: "https://www.bishopblaize.co.uk/",
+      },
+      { name: "The Trafford",
+        description: "Popular with fans, just a short walk from the stadium.",
+        link: "https://www.thetraffordpub.co.uk/"
+      }    
+    ],
+    attractions: [
+      { name: "Science and Industry Museum",    
+        type: "Culture",
+        link: "https://www.scienceandindustrymuseum.org.uk/"
+      },
+      { name: "Trafford Centre",
+        type: "Shopping & Entertainment",
+        link: "https://www.traffordcentre.co.uk/"
+      }
+    ],
+    affiliate: { 
+      tickets: "/bookings.html?club=manchester-united&type=tickets",
+      hotels: "/bookings.html?club=manchester-united&type=hotels",
+      flights: "/bookings.html?club=manchester-united&type=flights"
+    },
+
+    newsFeed: [
+      { title: "United announce new signing ahead of season",
+        source: "Sky Sports",
+        link: "https://www.skysports.com/football/news/manchester-united-signing"
+      },
+      { title: "Old Trafford to host charity match for local community",
+        source: "BBC Sport",
+        link: "https://www.bbc.co.uk/sport/football/manchester-united-charity-match"
+      }
+    ]
+
+  },
   
  {
-    club: "Liverpool",
+    name: "Liverpool",
     league: "Premier League",
     country: "England",
     city: "Liverpool",
+    slug: slugify("liverpool"),
     stadium: {
       name: "Anfield",
       capacity: 54074,
@@ -160,10 +219,11 @@ export const clubs = [
   },
 
 {  // ← Now this object is correctly separated
-  club: "Brighton & Hove Albion",
+  name: "Brighton & Hove Albion",
   league: "Premier League",
   country: "England",
   city: "Brighton",
+  slug: slugify("Brighton & Hove Albion"),
   stadium: {
     name: "Amex Stadium",
     capacity: 31800,
@@ -210,10 +270,11 @@ export const clubs = [
 },
 
 {
-  club: "Chelsea",
+  name: "Chelsea",
   league: "Premier League",
   country: "England",
   city: "London",
+  slug: slugify("Chelsea"),
   stadium: {
     name: "Stamford Bridge",
     capacity: 40343,
@@ -260,10 +321,11 @@ export const clubs = [
 },
 
 {
-  club: "Crystal Palace",
+  name: "Crystal Palace",
   league: "Premier League",
   country: "England",
   city: "London",
+  slug: slugify("Crystal Palace"),
   stadium: {
     name: "Selhurst Park",
     capacity: 25486,
@@ -305,10 +367,11 @@ export const clubs = [
 },
 
 {
-  club: "Everton",
+  name: "Everton",
   league: "Premier League",
   country: "England",
   city: "Liverpool",
+  slug: slugify("Everton"),
   stadium: {
     name: "Goodison Park",
     capacity: 39414,
@@ -350,10 +413,11 @@ export const clubs = [
 },
 
 {
-  club: "Fulham",
+  name: "Fulham",
   league: "Premier League",
   country: "England",
   city: "London",
+  slug: slugify("Fulham"),
   stadium: {
     name: "Craven Cottage",
     capacity: 25700,
@@ -395,10 +459,11 @@ export const clubs = [
 },
 
 {
-  club: "Burnley",
+  name: "Burnley",
   league: "Premier League",
   country: "England",
   city: "Burnley",
+  slug: slugify("Burnley"),
   stadium: {
     name: "Turf Moor",
     capacity: 21944,
@@ -440,10 +505,11 @@ export const clubs = [
 },
 
 {
-  club: "Leeds United",
+  name: "Leeds United",
   league: "Premier League",
   country: "England",
   city: "Leeds",
+  slug: slugify("Leeds United"),
   stadium: {
     name: "Elland Road",
     capacity: 37892,
@@ -485,10 +551,11 @@ export const clubs = [
 },
 
 {
-  club: "Sunderland",
+  name: "Sunderland",
   league: "Premier League",
   country: "England",
   city: "Sunderland",
+  slug: slugify("Sunderland"),
   stadium: {
     name: "Stadium of Light",
     capacity: 49000,
@@ -530,10 +597,11 @@ export const clubs = [
 },
 
 {
-  club: "Aston Villa",
+  name: "Aston Villa",
   league: "Premier League",
   country: "England",
   city: "Birmingham",
+  slug: slugify("Aston Villa"),
   stadium: {
     name: "Villa Park",
     capacity: 42682,
@@ -575,10 +643,11 @@ export const clubs = [
 },
 
 {
-  club: "Bournemouth",
+  name: "Bournemouth",
   league: "Premier League",
   country: "England",
   city: "Bournemouth",
+  slug: slugify("Bournemouth"),
   stadium: {
     name: "Vitality Stadium",
     capacity: 11329,
@@ -620,10 +689,11 @@ export const clubs = [
 },
 
 {
-  club: "Brentford",
+  name: "Brentford",
   league: "Premier League",
   country: "England",
   city: "London",
+  slug: slugify("Brentford"),
   stadium: {
     name: "Gtech Community Stadium",
     capacity: 17250,
@@ -665,10 +735,11 @@ export const clubs = [
 },
 
 {
-  club: "Tottenham Hotspur",
+  name: "Tottenham Hotspur",
   league: "Premier League",
   country: "England",
   city: "London",
+  slug: slugify("Tottenham Hotspur"),
   stadium: {
     name: "Tottenham Hotspur Stadium",
     capacity: 62850,
@@ -710,10 +781,11 @@ export const clubs = [
 },
 
 {
-  club: "West Ham United",
+  name: "West Ham United",
   league: "Premier League",
   country: "England",
   city: "London",
+  slug: slugify("West Ham United"),
   stadium: {
     name: "London Stadium",
     capacity: 62500,
@@ -755,10 +827,11 @@ export const clubs = [
 },
 
 {
-  club: "Wolverhampton Wanderers",
+  name: "Wolverhampton Wanderers",
   league: "Premier League",
   country: "England",
   city: "Wolverhampton",
+  slug: slugify("Wolverhampton Wanderers"),
   stadium: {
     name: "Molineux Stadium",
     capacity: 31700,
@@ -800,9 +873,10 @@ export const clubs = [
 },
   //Championships Teams ...
   {
-    club: "Leicester City",
+    name: "Leicester City",
     league: "Championship",
     city: "Leicester",
+    slug: slugify("Leicester City"),
     stadium: "King Power Stadium",
     tour: true,
     fanZonePub: "The Local Hero",
@@ -815,9 +889,10 @@ export const clubs = [
     newsFeed: []
   },
   {
-    club: "Southampton",
+    name: "Southampton",
     league: "Championship",
     city: "Southampton",
+    slug: slugify("Southampton"),
     stadium: "St Mary's Stadium",
     tour: true,
     fanZonePub: "The Rockstone",
@@ -830,9 +905,10 @@ export const clubs = [
     newsFeed: []
   },
   {
-    club: "Ipswich Town",
+    name: "Ipswich Town",
     league: "Championship",
     city: "Ipswich",
+    slug: slugify("Ipswich Town"),
     stadium: "Portman Road",
     tour: true,
     fanZonePub: "The Dove Street Inn",
@@ -845,9 +921,10 @@ export const clubs = [
     newsFeed: []
   },
   {
-    club: "Birmingham City",
+    name: "Birmingham City",
     league: "Championship",
     city: "Birmingham",
+    slug: slugify("Birmingham City"),
     stadium: "St Andrew's",
     tour: true,
     fanZonePub: "The Roost",
@@ -863,6 +940,7 @@ export const clubs = [
     name: "Wrexham",
     league: "Championship",
     city: "Wrexham",
+    slug: slugify("Wrexham"),
     stadium: "Racecourse Ground",
     tour: true,
     fanZonePub: "The Fat Boar",
@@ -878,6 +956,7 @@ export const clubs = [
     name: "Charlton Athletic",
     league: "Championship",
     city: "London",
+    slug: slugify("Charlton Athletic"),
     stadium: "The Valley",
     tour: true,
     fanZonePub: "The Rose of Denmark",
@@ -892,6 +971,7 @@ export const clubs = [
   {
     name: "Blackburn Rovers",
     league: "Championship",
+    slug: slugify("Blackburn-Rovers"),
     city: "Blackburn",
     stadium: "Ewood Park",
     tour: true,
@@ -907,6 +987,7 @@ export const clubs = [
   {
     name: "Bristol City",
     league: "Championship",
+    slug:slugify("Bristol City"),
     city: "Bristol",
     stadium: "Ashton Gate",
     tour: true,
@@ -2251,445 +2332,82 @@ export const clubs = [
   },
 
   // ... Eredivisie Teams
-
   {
-    name: "Sparta Rotterdam",
+    name: "AFC Ajax",
+    league: "Eredivisie", 
+    city: "Amsterdam",
+    stadium: "Johan Cruyff Arena",
+    slug: "afc-ajax",
+    image: "https://example.com/ajax.jpg",
+    description: "Ajax is one of the most successful and storied football clubs in the Netherlands, known for its youth academy and attacking style of play.",
+    capacity: 55000,
+    tour: true,
+    fanZonePub: "De Kroon",
+    transport: "Bijlmer Arena Metro Station",
+    attractions: ["Rijksmuseum", "Van Gogh Museum"],
+    affiliate: {
+      hotel: "https://uk.hotels.com/ho123456/ajax-hotel",
+      tickets: "https://ticketmaster.nl/ajax"
+    },
+    newsFeed: []
+  },
+  {
+    name: "PSV Eindhoven",
+    league: "Eredivisie",
+    city: "Eindhoven",
+    stadium: "Philips Stadion",
+    slug: "psv-eindhoven",
+    image: "https://example.com/psv.jpg", 
+    description: "PSV Eindhoven is a top Dutch football club with a rich history, known for its strong performances in both domestic and European competitions.",
+    capacity: 35000,
+    tour: true,
+    fanZonePub: "Café De Zaak",
+    transport: "Eindhoven Central Station",
+    attractions: ["Van Abbemuseum", "Philips Museum"],
+    affiliate: {
+      hotel: "https://uk.hotels.com/ho234567/psv-hotel",
+      tickets: "https://ticketmaster.nl/psv"
+    },
+    newsFeed: []
+  },
+  {
+    name: "Feyenoord Rotterdam",
     league: "Eredivisie",
     city: "Rotterdam",
-    stadium: "Spartastadion Het Kasteel",
-    capacity: 11000,
+    stadium: "De Kuip",
+    slug: "feyenoord-rotterdam",
+    image: "https://example.com/feyenoord.jpg",
+    description: "Feyenoord is one of the most popular and successful football clubs in the Netherlands, with a passionate fanbase and a rich history.",
+    capacity: 51000,
     tour: true,
-    fanZonePub: "Café De Oude Sluis",
-    transport: "Spangen Metro Station",
-    attractions: ["Euromast", "Maritime Museum"],
+    fanZonePub: "De Veranda",
+    transport: "Stadion Zuidplein Metro Station",
+    attractions: ["Erasmus Bridge", "Markthal"],
     affiliate: {
-      hotel: "https://uk.hotels.com/ho112233/sparta-hotel",
-      tickets: "https://ticketmaster.nl/sparta"
+      hotel: "https://uk.hotels.com/ho345678/feyenoord-hotel",
+      tickets: "https://ticketmaster.nl/feyenoord"
     },
-    newsFeed: []
+    newsFeed: []  
   },
   {
-    name: "FC Groningen",
+    name: "AZ Alkmaar",
     league: "Eredivisie",
-    city: "Groningen",
-    stadium: "Euroborg",
-    capacity: 22550,
+    city: "Alkmaar",
+    stadium: "AFAS Stadion",
+    slug: "az-alkmaar",
+    image: "https://example.com/az.jpg",
+    description: "AZ Alkmaar is a prominent Dutch football club known for its competitive spirit and strong youth academy, consistently challenging for top honors.",
+    capacity: 17000,
     tour: true,
-    fanZonePub: "De Pintelier",
-    transport: "Groningen Station",
-    attractions: ["Groninger Museum", "Noorderplantsoen"],
+    fanZonePub: "De Koning",
+    transport: "Alkmaar Noord Station",
+    attractions: ["Alkmaar Cheese Market", "St. Laurens Church"],
     affiliate: {
-      hotel: "https://uk.hotels.com/ho223344/groningen-hotel",
-      tickets: "https://ticketmaster.nl/groningen"
+      hotel: "https://uk.hotels.com/ho456789/az-hotel",
+      tickets: "https://ticketmaster.nl/az"
     },
     newsFeed: []
   },
-  {
-    name: "Fortuna Sittard",
-    league: "Eredivisie",
-    city: "Sittard",
-    stadium: "Fortuna Sittard Stadion",
-    capacity: 10300,
-    tour: true,
-    fanZonePub: "Café de Gats",
-    transport: "Sittard Station + bus",
-    attractions: ["Kasteelpark Born", "Sittard Market Square"],
-    affiliate: {
-      hotel: "https://uk.hotels.com/ho334455/sittard-hotel",
-      tickets: "https://ticketmaster.nl/fortuna"
-    },
-    newsFeed: []
-  },
-  {
-    name: "NAC Breda",
-    league: "Eredivisie",
-    city: "Breda",
-    stadium: "Rat Verlegh Stadion",
-    capacity: 19000,
-    tour: true,
-    fanZonePub: "Café de Beyerd",
-    transport: "Breda Station + bus",
-    attractions: ["Grote Kerk", "Breda Castle"],
-    affiliate: {
-      hotel: "https://uk.hotels.com/ho445566/breda-hotel",
-      tickets: "https://ticketmaster.nl/nac"
-    },
-    newsFeed: []
-  },
-  {
-    name: "PEC Zwolle",
-    league: "Eredivisie",
-    city: "Zwolle",
-    stadium: "MAC³PARK Stadion",
-    capacity: 13250,
-    tour: true,
-    fanZonePub: "Café Het Beugeltje",
-    transport: "Zwolle Station + walk",
-    attractions: ["Museum de Fundatie", "Sassenpoort"],
-    affiliate: {
-      hotel: "https://uk.hotels.com/ho556677/zwolle-hotel",
-      tickets: "https://ticketmaster.nl/pec"
-    },
-    newsFeed: []
-  },
-  {
-    name: "Heracles Almelo",
-    league: "Eredivisie",
-    city: "Almelo",
-    stadium: "Asito Stadion",
-    capacity: 12080,
-    tour: true,
-    fanZonePub: "Café De Stam",
-    transport: "Almelo Station",
-    attractions: ["City Park", "Bolletje Museum"],
-    affiliate: {
-      hotel: "https://uk.hotels.com/ho667788/almelo-hotel",
-      tickets: "https://ticketmaster.nl/heracles"
-    },
-    newsFeed: []
-  },
-  {
-    name: "Excelsior",
-    league: "Eredivisie",
-    city: "Rotterdam",
-    stadium: "Van Donge & De Roo Stadion",
-    capacity: 4500,
-    tour: true,
-    fanZonePub: "Café Walenburg",
-    transport: "Kralingse Zoom Metro Station",
-    attractions: ["Kralingse Bos", "Cube Houses"],
-    affiliate: {
-      hotel: "https://uk.hotels.com/ho778899/excelsior-hotel",
-      tickets: "https://ticketmaster.nl/excelsior"
-    },
-    newsFeed: []
-  },
-  {
-    name: "FC Volendam",
-    league: "Eredivisie",
-    city: "Volendam",
-    stadium: "Kras Stadion",
-    capacity: 7384,
-    tour: true,
-    fanZonePub: "Café 't Havengat",
-    transport: "Amsterdam + bus to Volendam",
-    attractions: ["Volendam Museum", "Harbour Promenade"],
-    affiliate: {
-      hotel: "https://uk.hotels.com/ho889900/volendam-hotel",
-      tickets: "https://ticketmaster.nl/volendam"
-    },
-    newsFeed: []
-  },
-  {
-    name: "SC Telstar",
-    league: "Eredivisie",
-    city: "Velsen",
-    stadium: "BUKO Stadion",
-    capacity: 4200,
-    tour: true,
-    fanZonePub: "Café De Zon",
-    transport: "Driehuis Station + walk",
-    attractions: ["Beeckestijn Estate", "North Sea Dunes"],
-    affiliate: {
-      hotel: "https://uk.hotels.com/ho990011/telstar-hotel",
-      tickets: "https://ticketmaster.nl/telstar"
-    },
-    newsFeed: []
-  },
-
-  {
-    name: "Sparta Rotterdam",
-    league: "Eredivisie",
-    city: "Rotterdam",
-    stadium: "Spartastadion Het Kasteel",
-    capacity: 11000,
-    tour: true,
-    fanZonePub: "Café De Oude Sluis",
-    transport: "Spangen Metro Station",
-    attractions: ["Euromast", "Maritime Museum"],
-    affiliate: {
-      hotel: "https://uk.hotels.com/ho112233/sparta-hotel",
-      tickets: "https://ticketmaster.nl/sparta"
-    },
-    newsFeed: []
-  },
-  {
-    name: "FC Groningen",
-    league: "Eredivisie",
-    city: "Groningen",
-    stadium: "Euroborg",
-    capacity: 22550,
-    tour: true,
-    fanZonePub: "De Pintelier",
-    transport: "Groningen Station",
-    attractions: ["Groninger Museum", "Noorderplantsoen"],
-    affiliate: {
-      hotel: "https://uk.hotels.com/ho223344/groningen-hotel",
-      tickets: "https://ticketmaster.nl/groningen"
-    },
-    newsFeed: []
-  },
-  {
-    name: "Fortuna Sittard",
-    league: "Eredivisie",
-    city: "Sittard",
-    stadium: "Fortuna Sittard Stadion",
-    capacity: 10300,
-    tour: true,
-    fanZonePub: "Café de Gats",
-    transport: "Sittard Station + bus",
-    attractions: ["Kasteelpark Born", "Sittard Market Square"],
-    affiliate: {
-      hotel: "https://uk.hotels.com/ho334455/sittard-hotel",
-      tickets: "https://ticketmaster.nl/fortuna"
-    },
-    newsFeed: []
-  },
-  {
-    name: "NAC Breda",
-    league: "Eredivisie",
-    city: "Breda",
-    stadium: "Rat Verlegh Stadion",
-    capacity: 19000,
-    tour: true,
-    fanZonePub: "Café de Beyerd",
-    transport: "Breda Station + bus",
-    attractions: ["Grote Kerk", "Breda Castle"],
-    affiliate: {
-      hotel: "https://uk.hotels.com/ho445566/breda-hotel",
-      tickets: "https://ticketmaster.nl/nac"
-    },
-    newsFeed: []
-  },
-  {
-    name: "PEC Zwolle",
-    league: "Eredivisie",
-    city: "Zwolle",
-    stadium: "MAC³PARK Stadion",
-    capacity: 13250,
-    tour: true,
-    fanZonePub: "Café Het Beugeltje",
-    transport: "Zwolle Station + walk",
-    attractions: ["Museum de Fundatie", "Sassenpoort"],
-    affiliate: {
-      hotel: "https://uk.hotels.com/ho556677/zwolle-hotel",
-      tickets: "https://ticketmaster.nl/pec"
-    },
-    newsFeed: []
-  },
-  {
-    name: "Heracles Almelo",
-    league: "Eredivisie",
-    city: "Almelo",
-    stadium: "Asito Stadion",
-    capacity: 12080,
-    tour: true,
-    fanZonePub: "Café De Stam",
-    transport: "Almelo Station",
-    attractions: ["City Park", "Bolletje Museum"],
-    affiliate: {
-      hotel: "https://uk.hotels.com/ho667788/almelo-hotel",
-      tickets: "https://ticketmaster.nl/heracles"
-    },
-    newsFeed: []
-  },
-  {
-    name: "Excelsior",
-    league: "Eredivisie",
-    city: "Rotterdam",
-    stadium: "Van Donge & De Roo Stadion",
-    capacity: 4500,
-    tour: true,
-    fanZonePub: "Café Walenburg",
-    transport: "Kralingse Zoom Metro Station",
-    attractions: ["Kralingse Bos", "Cube Houses"],
-    affiliate: {
-      hotel: "https://uk.hotels.com/ho778899/excelsior-hotel",
-      tickets: "https://ticketmaster.nl/excelsior"
-    },
-    newsFeed: []
-  },
-  {
-    name: "FC Volendam",
-    league: "Eredivisie",
-    city: "Volendam",
-    stadium: "Kras Stadion",
-    capacity: 7384,
-    tour: true,
-    fanZonePub: "Café 't Havengat",
-    transport: "Amsterdam + bus to Volendam",
-    attractions: ["Volendam Museum", "Harbour Promenade"],
-    affiliate: {
-      hotel: "https://uk.hotels.com/ho889900/volendam-hotel",
-      tickets: "https://ticketmaster.nl/volendam"
-    },
-    newsFeed: []
-  },
-  {
-    name: "SC Telstar",
-    league: "Eredivisie",
-    city: "Velsen",
-    stadium: "BUKO Stadion",
-    capacity: 4200,
-    tour: true,
-    fanZonePub: "Café De Zon",
-    transport: "Driehuis Station + walk",
-    attractions: ["Beeckestijn Estate", "North Sea Dunes"],
-    affiliate: {
-      hotel: "https://uk.hotels.com/ho990011/telstar-hotel",
-      tickets: "https://ticketmaster.nl/telstar"
-    },
-    newsFeed: []
-  },
-
-// ... Portuguese Primeira Liga Teams
-
-
-  {
-    name: "Sparta Rotterdam",
-    league: "Eredivisie",
-    city: "Rotterdam",
-    stadium: "Spartastadion Het Kasteel",
-    capacity: 11000,
-    tour: true,
-    fanZonePub: "Café De Oude Sluis",
-    transport: "Spangen Metro Station",
-    attractions: ["Euromast", "Maritime Museum"],
-    affiliate: {
-      hotel: "https://uk.hotels.com/ho112233/sparta-hotel",
-      tickets: "https://ticketmaster.nl/sparta"
-    },
-    newsFeed: []
-  },
-  {
-    name: "FC Groningen",
-    league: "Eredivisie",
-    city: "Groningen",
-    stadium: "Euroborg",
-    capacity: 22550,
-    tour: true,
-    fanZonePub: "De Pintelier",
-    transport: "Groningen Station",
-    attractions: ["Groninger Museum", "Noorderplantsoen"],
-    affiliate: {
-      hotel: "https://uk.hotels.com/ho223344/groningen-hotel",
-      tickets: "https://ticketmaster.nl/groningen"
-    },
-    newsFeed: []
-  },
-  {
-    name: "Fortuna Sittard",
-    league: "Eredivisie",
-    city: "Sittard",
-    stadium: "Fortuna Sittard Stadion",
-    capacity: 10300,
-    tour: true,
-    fanZonePub: "Café de Gats",
-    transport: "Sittard Station + bus",
-    attractions: ["Kasteelpark Born", "Sittard Market Square"],
-    affiliate: {
-      hotel: "https://uk.hotels.com/ho334455/sittard-hotel",
-      tickets: "https://ticketmaster.nl/fortuna"
-    },
-    newsFeed: []
-  },
-  {
-    name: "NAC Breda",
-    league: "Eredivisie",
-    city: "Breda",
-    stadium: "Rat Verlegh Stadion",
-    capacity: 19000,
-    tour: true,
-    fanZonePub: "Café de Beyerd",
-    transport: "Breda Station + bus",
-    attractions: ["Grote Kerk", "Breda Castle"],
-    affiliate: {
-      hotel: "https://uk.hotels.com/ho445566/breda-hotel",
-      tickets: "https://ticketmaster.nl/nac"
-    },
-    newsFeed: []
-  },
-  {
-    name: "PEC Zwolle",
-    league: "Eredivisie",
-    city: "Zwolle",
-    stadium: "MAC³PARK Stadion",
-    capacity: 13250,
-    tour: true,
-    fanZonePub: "Café Het Beugeltje",
-    transport: "Zwolle Station + walk",
-    attractions: ["Museum de Fundatie", "Sassenpoort"],
-    affiliate: {
-      hotel: "https://uk.hotels.com/ho556677/zwolle-hotel",
-      tickets: "https://ticketmaster.nl/pec"
-    },
-    newsFeed: []
-  },
-  {
-    name: "Heracles Almelo",
-    league: "Eredivisie",
-    city: "Almelo",
-    stadium: "Asito Stadion",
-    capacity: 12080,
-    tour: true,
-    fanZonePub: "Café De Stam",
-    transport: "Almelo Station",
-    attractions: ["City Park", "Bolletje Museum"],
-    affiliate: {
-      hotel: "https://uk.hotels.com/ho667788/almelo-hotel",
-      tickets: "https://ticketmaster.nl/heracles"
-    },
-    newsFeed: []
-  },
-  {
-    name: "Excelsior",
-    league: "Eredivisie",
-    city: "Rotterdam",
-    stadium: "Van Donge & De Roo Stadion",
-    capacity: 4500,
-    tour: true,
-    fanZonePub: "Café Walenburg",
-    transport: "Kralingse Zoom Metro Station",
-    attractions: ["Kralingse Bos", "Cube Houses"],
-    affiliate: {
-      hotel: "https://uk.hotels.com/ho778899/excelsior-hotel",
-      tickets: "https://ticketmaster.nl/excelsior"
-    },
-    newsFeed: []
-  },
-  {
-    name: "FC Volendam",
-    league: "Eredivisie",
-    city: "Volendam",
-    stadium: "Kras Stadion",
-    capacity: 7384,
-    tour: true,
-    fanZonePub: "Café 't Havengat",
-    transport: "Amsterdam + bus to Volendam",
-    attractions: ["Volendam Museum", "Harbour Promenade"],
-    affiliate: {
-      hotel: "https://uk.hotels.com/ho889900/volendam-hotel",
-      tickets: "https://ticketmaster.nl/volendam"
-    },
-    newsFeed: []
-  },
-  {
-    name: "SC Telstar",
-    league: "Eredivisie",
-    city: "Velsen",
-    stadium: "BUKO Stadion",
-    capacity: 4200,
-    tour: true,
-    fanZonePub: "Café De Zon",
-    transport: "Driehuis Station + walk",
-    attractions: ["Beeckestijn Estate", "North Sea Dunes"],
-    affiliate: {
-      hotel: "https://uk.hotels.com/ho990011/telstar-hotel",
-      tickets: "https://ticketmaster.nl/telstar"
-    },
-    newsFeed: []
-  },
-
 
   // ... Portuguese Primeira Liga Teams
 
@@ -2699,6 +2417,9 @@ export const clubs = [
     league: "Primeira Liga",
     city: "Lisbon",
     stadium: "Estádio da Luz",
+    slug: "benfica",
+    image: "https://example.com/benfica.jpg",
+    description: "Benfica is one of the most successful and popular football clubs in Portugal, known for its passionate fanbase and rich history.",  
     capacity: 68100,
     tour: true,
     fanZonePub: "O Magano",
@@ -2708,13 +2429,14 @@ export const clubs = [
       hotel: "https://uk.hotels.com/ho101010/benfica-hotel",
       tickets: "https://ticketmaster.pt/benfica"
     },
-    newsFeed: []
+    newsFeed: [     ]
   },
   {
     name: "Sporting CP",
     league: "Primeira Liga",
     city: "Lisbon",
     stadium: "Estádio José Alvalade",
+    slug: "sporting-cp",
     capacity: 50095,
     tour: true,
     fanZonePub: "Café Alvalade",
@@ -4063,10 +3785,12 @@ export const clubs = [
     },
     newsFeed: []
   }
-  
+  ];
+export const clubs = rawClubs.map(club => ({
+  ...club,
+  slug: slugify(club.name)
+}));
 
-
-];
 
 // This code defines an array of football clubs with their details such as name, league, city, stadium, capacity, tour availability, fan zone pub, transport options, attractions, affiliate links for hotels and tickets, and an empty news feed.
 // The clubs include teams from Brazil's Brasileirão Série A, Argentina's Primera División, and other international teams from leagues like MLS, Süper Lig, Scottish Premiership, and more. Each club has a structured object containing relevant information for fans and tourists.  

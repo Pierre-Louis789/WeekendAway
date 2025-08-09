@@ -4,7 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>All Trips – Footy Weekender</title>
-  <!-- Styles -->
+
+  <!-- 🧵 Stylesheets -->
   <link rel="stylesheet" href="assets/css/components/ExploreStyle.css" />
   <link rel="stylesheet" href="assets/css/components/TripCard.css" />
   <link rel="stylesheet" href="assets/css/components/TripGrid.css" />
@@ -12,18 +13,9 @@
   <link rel="stylesheet" href="assets/css/components/Hero.css" />
   <link rel="stylesheet" href="assets/css/components/SiteFooter.css" />
   <link rel="stylesheet" href="assets/css/components/Button.css" />
-  
-  <!-- Scripts: Trips Grid -->
-<script type="module" src="assets/js/modules/tripLogic.js"></script>
-<script type="module">
-  import { renderTrips } from '/assets/js/modules/tripLogic.js';
-  renderTrips('trip-grid'); // ← match container ID in HTML
-</script>
-<script src="/assets/js/utils/lazyLoad.js"></script>
-
-  
-
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 </head>
+
 <body>
   <!-- 🔝 Navbar -->
   <header class="navbar">
@@ -38,37 +30,54 @@
       </nav>
     </div>
   </header>
+
   <!-- 🏟️ Hero Section -->
   <section id="hero" class="hero-section">
-    <div class="hero-content" >
+    <div class="hero-content">
       <h1>Explore Football Trips</h1>
       <p>Discover the best football trips and experiences around the world.</p>
     </div>
+    <br>
+    <div class="typeahead-container">
+      <input type="text" id="searchInput" placeholder="Search clubs, cities, stadiums..." />
+    </div>
   </section>
 
-  <!-- 🔍 Trip Filters Section -->
-<section class="filters-section">
-  <form id="tripFilters" class="filters-form">
-    <input type="text" name="keyword" placeholder="Search club or city" />
-    <button type="submit">Filter Trips</button>
-  </form>
-</section>
+  <!-- 🎯 Experience Slider -->
+  <section class="experience-section">
+    <h2>Choose Your Matchday Vibe</h2>
+    <div class="swiper">
+      <div class="swiper-wrapper" id="experience-slider"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+  </section>
 
-<!-- 🧳 Trip Grid Section -->
-<section id="trip-grid" class="trip-grid-section">
-  <div id="tripContainer"></div>
-</section>
+  <!-- 🧳 Trips Grid -->
+  <section id="trip-grid" class="trip-grid-section"></section>
 
-<!-- 🧠 Trip Filters Script -->
-<script type="module">
-  import { initTripFilters } from './assets/js/modules/formHandler.js';
-  initTripFilters();
-</script>
-
-
+  <!-- 🧱 Footer -->
   <footer class="site-footer">
-    <!-- footer consistent with index.html -->
+    <div class="footer-container">
+      <div class="footer-logo">🏟️ Footy Weekender</div>
+      <div class="footer-links">
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="contact.html">Contact</a>
+        <a href="partners.html">Partners</a>
+      </div>
+      <div class="footer-legal">
+        © 2025 Footy Weekender. Built for fans, by fans.
+      </div>
+    </div>
   </footer>
 
+  <!-- 📦 Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/17.1.1/lazyload.min.js"></script>
+  <script>
+    new LazyLoad({ elements_selector: 'img.lazy' });
+  </script>
+
+  <script type="module" src="/assets/js/modules/explorerLogic.js"></script>
 </body>
 </html>
